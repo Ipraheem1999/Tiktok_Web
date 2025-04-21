@@ -1,0 +1,13 @@
+[Unit]
+Description=TikTok Automation API Service
+After=network.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/tiktok_web
+ExecStart=/usr/bin/python3 -m uvicorn main:app --host 0.0.0.0 --port 8000
+Restart=always
+Environment="PYTHONPATH=/home/ubuntu/tiktok_web"
+
+[Install]
+WantedBy=multi-user.target
